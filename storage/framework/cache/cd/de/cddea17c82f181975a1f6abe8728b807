@@ -1,0 +1,8 @@
+1506591457a:1:{s:8:"cta2.htm";a:5:{s:8:"fileName";s:8:"cta2.htm";s:7:"content";s:717:"                <h2 class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="0ms"><span>MULTI</span> IS A CREATIVE HTML TEMPLATE</h2>
+                <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="100ms">Mauris pretium auctor quam. Vestibulum et nunc id nisi fringilla <br />iaculis. Mauris pretium auctor quam.</p>
+                <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="200ms"><a class="btn btn-primary btn-lg" href="https://github.com/jtherczeg/multi-theme/archive/master.zip">Free Download</a></p>
+                <img class="img-responsive wow fadeIn" src="{{ 'assets/images/cta2/cta2-img.png'|theme }}" alt="" data-wow-duration="300ms" data-wow-delay="300ms">
+";s:5:"mtime";i:1506589496;s:6:"markup";s:700:"<h2 class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="0ms"><span>MULTI</span> IS A CREATIVE HTML TEMPLATE</h2>
+                <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="100ms">Mauris pretium auctor quam. Vestibulum et nunc id nisi fringilla <br />iaculis. Mauris pretium auctor quam.</p>
+                <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="200ms"><a class="btn btn-primary btn-lg" href="https://github.com/jtherczeg/multi-theme/archive/master.zip">Free Download</a></p>
+                <img class="img-responsive wow fadeIn" src="{{ 'assets/images/cta2/cta2-img.png'|theme }}" alt="" data-wow-duration="300ms" data-wow-delay="300ms">";s:4:"code";N;}}

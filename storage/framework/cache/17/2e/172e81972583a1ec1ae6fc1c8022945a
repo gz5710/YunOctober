@@ -1,0 +1,12 @@
+1506614034a:1:{s:23:"pages-all/copyright.htm";a:6:{s:8:"fileName";s:23:"pages-all/copyright.htm";s:7:"content";s:132:"==
+<div class="lt-row row">
+  {% content "copyright" %}
+</div>
+<!--<div class="lt-row row">
+  {% content "social" %}
+</div>-->";s:5:"mtime";i:1506603088;s:6:"markup";s:128:"<div class="lt-row row">
+  {% content "copyright" %}
+</div>
+<!--<div class="lt-row row">
+  {% content "social" %}
+</div>-->";s:4:"code";N;s:17:"_PARSER_ERROR_INI";s:0:"";}}
