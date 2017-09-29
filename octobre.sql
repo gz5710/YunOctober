@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 27, 2017 at 05:47 PM
+-- Generation Time: Sep 29, 2017 at 12:48 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -188,7 +188,10 @@ CREATE TABLE `cms_theme_data` (
 --
 
 INSERT INTO `cms_theme_data` (`id`, `theme`, `data`, `created_at`, `updated_at`) VALUES
-(1, 'zwiebl-zwiebl_stellar', '{\"website_name\":\"HTML5UP Stellar\",\"website_author\":\"Zwiebl.xyz\",\"website_url\":\"http:\\/\\/demo.zwiebl.xyz\\/html5up_stellar\",\"description\":\"Modern and Clean One Page OctoberCMS Theme\",\"keywords\":\"october,octobercms,themes,templates,free octobercms themes\",\"load_google_fonts\":true,\"google_font_family\":\"Roboto+Slab:300,400,700|Raleway:300,300i,400,400i,700,700i\",\"load_fontawesome\":true,\"load_jQuery\":true,\"jQuery_version\":\"2.2.4\",\"load_octobercms_framework\":false,\"show_section_one\":true,\"show_section_two\":true,\"show_section_three\":true,\"show_section_four\":true,\"zw-bg-color-bg-one\":\"#a89cc8\",\"zw-bg-color-bg-two\":\"#5f4d93\",\"zw-bg-color-buttons\":\"8cc9f0\"}', '2017-09-27 13:22:13', '2017-09-27 13:22:13');
+(1, 'zwiebl-zwiebl_stellar', '{\"website_name\":\"HTML5UP Stellar\",\"website_author\":\"Zwiebl.xyz\",\"website_url\":\"http:\\/\\/demo.zwiebl.xyz\\/html5up_stellar\",\"description\":\"Modern and Clean One Page OctoberCMS Theme\",\"keywords\":\"october,octobercms,themes,templates,free octobercms themes\",\"load_google_fonts\":true,\"google_font_family\":\"Roboto+Slab:300,400,700|Raleway:300,300i,400,400i,700,700i\",\"load_fontawesome\":true,\"load_jQuery\":true,\"jQuery_version\":\"2.2.4\",\"load_octobercms_framework\":false,\"show_section_one\":true,\"show_section_two\":true,\"show_section_three\":true,\"show_section_four\":true,\"zw-bg-color-bg-one\":\"#a89cc8\",\"zw-bg-color-bg-two\":\"#5f4d93\",\"zw-bg-color-buttons\":\"8cc9f0\"}', '2017-09-27 13:22:13', '2017-09-27 13:22:13'),
+(2, 'jtherczeg-elevator', '{\"site_name\":\"Elevator\"}', '2017-09-28 07:05:34', '2017-09-28 07:05:34'),
+(3, 'jtherczeg-multi', '{\"site_name\":\"Multi\"}', '2017-09-28 07:06:45', '2017-09-28 07:06:45'),
+(4, 'laratify-octobercms-octaskin', '{\"website_name\":\"Octaskin\",\"website_author\":\"Laratify\",\"website_url\":\"http:\\/\\/demo.laratify.dev\\/octobercms\\/?theme=octaskin\",\"description\":\"Free Modern and Clean OctoberCMS Theme based on Materialize CSS.\",\"keywords\":\"octaskin,laratify,october,octobercms,themes,templates,free octobercms themes\",\"load_google_fonts\":true,\"google_font_family\":\"Roboto+Slab:300,400,700|Raleway:300,300i,400,400i,700,700i\",\"load_fontawesome\":true,\"load_material_icons\":true,\"load_stroke7_icons\":true,\"load_jQuery\":true,\"jQuery_version\":\"2.2.4\",\"load_octobercms_framework\":false,\"primary_color\":\"#ff5722\",\"secondary_color\":\"#2196f3\",\"navigation_background_color\":\"#ff5722\",\"navigation_text_color\":\"#ffffff\",\"slideshow_background_color\":\"#455a64\",\"slideshow_text_color\":\"#ffffff\",\"header_background_color\":\"#37474f\",\"header_text_color\":\"#ffffff\",\"feature_background_color\":\"#ffffff\",\"feature_text_color\":\"#686868\",\"utility_background_color\":\"#eceff1\",\"utility_text_color\":\"#686868\",\"mainpage_background_color\":\"#ffffff\",\"mainpage_text_color\":\"#686868\",\"bottom_background_color\":\"#eceff1\",\"bottom_text_color\":\"#686868\",\"extension_background_color\":\"#ffffff\",\"extension_text_color\":\"#686868\",\"footer_background_color\":\"#455a64\",\"footer_text_color\":\"#b0bec5\",\"copyright_background_color\":\"#37474f\",\"copyright_text_color\":\"#78909c\",\"load_animate_css\":true,\"load_wow_js\":true,\"load_owl_carousel\":true}', '2017-09-28 07:10:33', '2017-09-28 07:10:33');
 
 -- --------------------------------------------------------
 
@@ -385,6 +388,137 @@ INSERT INTO `rainlab_blog_posts_categories` (`post_id`, `category_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `rainlab_forum_channels`
+--
+
+CREATE TABLE `rainlab_forum_channels` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `parent_id` int(10) UNSIGNED DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `nest_left` int(11) DEFAULT NULL,
+  `nest_right` int(11) DEFAULT NULL,
+  `nest_depth` int(11) DEFAULT NULL,
+  `count_topics` int(11) NOT NULL DEFAULT '0',
+  `count_posts` int(11) NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `is_hidden` tinyint(1) NOT NULL DEFAULT '0',
+  `is_moderated` tinyint(1) NOT NULL DEFAULT '0',
+  `embed_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `rainlab_forum_channels`
+--
+
+INSERT INTO `rainlab_forum_channels` (`id`, `parent_id`, `title`, `slug`, `description`, `nest_left`, `nest_right`, `nest_depth`, `count_topics`, `count_posts`, `created_at`, `updated_at`, `is_hidden`, `is_moderated`, `embed_code`) VALUES
+(1, NULL, 'Channel Orange', 'channel-orange', 'A root level forum channel', 1, 12, 0, 0, 0, '2017-09-28 07:09:12', '2017-09-28 07:09:14', 0, 0, NULL),
+(2, 1, 'Autumn Leaves', 'autumn-leaves', 'Disccusion about the season of falling leaves.', 2, 9, 1, 0, 0, '2017-09-28 07:09:13', '2017-09-28 07:09:13', 0, 0, NULL),
+(3, 2, 'September', 'september', 'The start of the fall season.', 3, 4, 2, 0, 0, '2017-09-28 07:09:13', '2017-09-28 07:09:13', 0, 0, NULL),
+(4, 2, 'October', 'october', 'The middle of the fall season.', 5, 6, 2, 0, 0, '2017-09-28 07:09:13', '2017-09-28 07:09:13', 0, 0, NULL),
+(5, 2, 'November', 'november', 'The end of the fall season.', 7, 8, 2, 0, 0, '2017-09-28 07:09:13', '2017-09-28 07:09:13', 0, 0, NULL),
+(6, 1, 'Summer Breeze', 'summer-breeze', 'Disccusion about the wind at the ocean.', 10, 11, 1, 0, 0, '2017-09-28 07:09:14', '2017-09-28 07:09:14', 0, 0, NULL),
+(7, NULL, 'Channel Green', 'channel-green', 'A root level forum channel', 13, 18, 0, 0, 0, '2017-09-28 07:09:14', '2017-09-28 07:09:16', 0, 0, NULL),
+(8, 7, 'Winter Snow', 'winter-snow', 'Disccusion about the frosty snow flakes.', 14, 15, 1, 0, 0, '2017-09-28 07:09:14', '2017-09-28 07:09:15', 0, 0, NULL),
+(9, 7, 'Spring Trees', 'spring-trees', 'Disccusion about the blooming gardens.', 16, 17, 1, 0, 0, '2017-09-28 07:09:16', '2017-09-28 07:09:16', 0, 0, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rainlab_forum_members`
+--
+
+CREATE TABLE `rainlab_forum_members` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED DEFAULT NULL,
+  `username` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `slug` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `count_posts` int(11) NOT NULL DEFAULT '0',
+  `count_topics` int(11) NOT NULL DEFAULT '0',
+  `last_active_at` datetime DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `is_moderator` tinyint(1) NOT NULL DEFAULT '0',
+  `is_banned` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rainlab_forum_posts`
+--
+
+CREATE TABLE `rainlab_forum_posts` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `subject` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `content` text COLLATE utf8_unicode_ci,
+  `content_html` text COLLATE utf8_unicode_ci,
+  `topic_id` int(10) UNSIGNED DEFAULT NULL,
+  `member_id` int(10) UNSIGNED DEFAULT NULL,
+  `edit_user_id` int(11) DEFAULT NULL,
+  `delete_user_id` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rainlab_forum_topics`
+--
+
+CREATE TABLE `rainlab_forum_topics` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `subject` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `channel_id` int(10) UNSIGNED NOT NULL,
+  `start_member_id` int(11) DEFAULT NULL,
+  `last_post_id` int(11) DEFAULT NULL,
+  `last_post_member_id` int(11) DEFAULT NULL,
+  `last_post_at` datetime DEFAULT NULL,
+  `is_private` tinyint(1) NOT NULL DEFAULT '0',
+  `is_sticky` tinyint(1) NOT NULL DEFAULT '0',
+  `is_locked` tinyint(1) NOT NULL DEFAULT '0',
+  `count_posts` int(11) NOT NULL DEFAULT '0',
+  `count_views` int(11) NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `embed_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rainlab_forum_topic_followers`
+--
+
+CREATE TABLE `rainlab_forum_topic_followers` (
+  `topic_id` int(10) UNSIGNED NOT NULL,
+  `member_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rainlab_user_mail_blockers`
+--
+
+CREATE TABLE `rainlab_user_mail_blockers` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `template` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `user_id` int(10) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sessions`
 --
 
@@ -408,6 +542,13 @@ CREATE TABLE `system_event_logs` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `system_event_logs`
+--
+
+INSERT INTO `system_event_logs` (`id`, `level`, `message`, `details`, `created_at`, `updated_at`) VALUES
+(1, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalErrorException: Out of memory (allocated 2097152) (tried to allocate 8192 bytes) in C:\\xampp\\htdocs\\octobre\\vendor\\symfony\\yaml\\Inline.php:338\nStack trace:\n#0 {main}', NULL, '2017-09-28 08:26:25', '2017-09-28 08:26:25');
 
 -- --------------------------------------------------------
 
@@ -506,7 +647,9 @@ INSERT INTO `system_parameters` (`id`, `namespace`, `group`, `item`, `value`) VA
 (1, 'system', 'update', 'count', '0'),
 (2, 'system', 'core', 'hash', '\"386846ebe3802c4f192625743abb3f06\"'),
 (3, 'system', 'core', 'build', '\"419\"'),
-(4, 'system', 'update', 'retry', '1506612358');
+(4, 'system', 'update', 'retry', '1506612358'),
+(5, 'system', 'theme', 'history', '{\"jtherczeg.Multi\":\"jtherczeg-multi\",\"jtherczeg.elevator\":\"jtherczeg-elevator\",\"Laratify.octobercms-octaskin\":\"laratify-octobercms-octaskin\"}'),
+(6, 'cms', 'theme', 'active', '\"laratify-octobercms-octaskin\"');
 
 -- --------------------------------------------------------
 
@@ -568,7 +711,91 @@ INSERT INTO `system_plugin_history` (`id`, `code`, `type`, `version`, `detail`, 
 (38, 'RainLab.Blog', 'comment', '1.2.13', 'Improved support for Static Pages menus, added a blog post and all blog posts.', '2017-09-27 13:22:09'),
 (39, 'RainLab.Blog', 'comment', '1.2.14', 'Added post exception property to the post list component, useful for showing related posts.', '2017-09-27 13:22:09'),
 (40, 'RainLab.Blog', 'comment', '1.2.15', 'Back-end navigation sort order updated.', '2017-09-27 13:22:09'),
-(41, 'RainLab.Blog', 'comment', '1.2.16', 'Added `nextPost` and `previousPost` to the blog post component.', '2017-09-27 13:22:10');
+(41, 'RainLab.Blog', 'comment', '1.2.16', 'Added `nextPost` and `previousPost` to the blog post component.', '2017-09-27 13:22:10'),
+(42, 'RainLab.User', 'script', '1.0.1', 'create_users_table.php', '2017-09-28 07:08:50'),
+(43, 'RainLab.User', 'script', '1.0.1', 'create_throttle_table.php', '2017-09-28 07:08:51'),
+(44, 'RainLab.User', 'comment', '1.0.1', 'Initialize plugin.', '2017-09-28 07:08:51'),
+(45, 'RainLab.User', 'comment', '1.0.2', 'Seed tables.', '2017-09-28 07:08:52'),
+(46, 'RainLab.User', 'comment', '1.0.3', 'Translated hard-coded text to language strings.', '2017-09-28 07:08:52'),
+(47, 'RainLab.User', 'comment', '1.0.4', 'Improvements to user-interface for Location manager.', '2017-09-28 07:08:52'),
+(48, 'RainLab.User', 'comment', '1.0.5', 'Added contact details for users.', '2017-09-28 07:08:52'),
+(49, 'RainLab.User', 'script', '1.0.6', 'create_mail_blockers_table.php', '2017-09-28 07:08:53'),
+(50, 'RainLab.User', 'comment', '1.0.6', 'Added Mail Blocker utility so users can block specific mail templates.', '2017-09-28 07:08:53'),
+(51, 'RainLab.User', 'comment', '1.0.7', 'Add back-end Settings page.', '2017-09-28 07:08:53'),
+(52, 'RainLab.User', 'comment', '1.0.8', 'Updated the Settings page.', '2017-09-28 07:08:54'),
+(53, 'RainLab.User', 'comment', '1.0.9', 'Adds new welcome mail message for users and administrators.', '2017-09-28 07:08:54'),
+(54, 'RainLab.User', 'comment', '1.0.10', 'Adds administrator-only activation mode.', '2017-09-28 07:08:54'),
+(55, 'RainLab.User', 'script', '1.0.11', 'users_add_login_column.php', '2017-09-28 07:08:56'),
+(56, 'RainLab.User', 'comment', '1.0.11', 'Users now have an optional login field that defaults to the email field.', '2017-09-28 07:08:56'),
+(57, 'RainLab.User', 'script', '1.0.12', 'users_rename_login_to_username.php', '2017-09-28 07:08:56'),
+(58, 'RainLab.User', 'comment', '1.0.12', 'Create a dedicated setting for choosing the login mode.', '2017-09-28 07:08:56'),
+(59, 'RainLab.User', 'comment', '1.0.13', 'Minor fix to the Account sign in logic.', '2017-09-28 07:08:57'),
+(60, 'RainLab.User', 'comment', '1.0.14', 'Minor improvements to the code.', '2017-09-28 07:08:57'),
+(61, 'RainLab.User', 'script', '1.0.15', 'users_add_surname.php', '2017-09-28 07:08:58'),
+(62, 'RainLab.User', 'comment', '1.0.15', 'Adds last name column to users table (surname).', '2017-09-28 07:08:58'),
+(63, 'RainLab.User', 'comment', '1.0.16', 'Require permissions for settings page too.', '2017-09-28 07:08:58'),
+(64, 'RainLab.User', 'comment', '1.1.0', '!!! Profile fields and Locations have been removed.', '2017-09-28 07:08:59'),
+(65, 'RainLab.User', 'script', '1.1.1', 'create_user_groups_table.php', '2017-09-28 07:09:01'),
+(66, 'RainLab.User', 'script', '1.1.1', 'seed_user_groups_table.php', '2017-09-28 07:09:01'),
+(67, 'RainLab.User', 'comment', '1.1.1', 'Users can now be added to groups.', '2017-09-28 07:09:01'),
+(68, 'RainLab.User', 'comment', '1.1.2', 'A raw URL can now be passed as the redirect property in the Account component.', '2017-09-28 07:09:02'),
+(69, 'RainLab.User', 'comment', '1.1.3', 'Adds a super user flag to the users table, reserved for future use.', '2017-09-28 07:09:02'),
+(70, 'RainLab.User', 'comment', '1.1.4', 'User list can be filtered by the group they belong to.', '2017-09-28 07:09:02'),
+(71, 'RainLab.User', 'comment', '1.1.5', 'Adds a new permission to hide the User settings menu item.', '2017-09-28 07:09:02'),
+(72, 'RainLab.User', 'script', '1.2.0', 'users_add_deleted_at.php', '2017-09-28 07:09:03'),
+(73, 'RainLab.User', 'comment', '1.2.0', 'Users can now deactivate their own accounts.', '2017-09-28 07:09:03'),
+(74, 'RainLab.User', 'comment', '1.2.1', 'New feature for checking if a user is recently active/online.', '2017-09-28 07:09:03'),
+(75, 'RainLab.User', 'comment', '1.2.2', 'Add bulk action button to user list.', '2017-09-28 07:09:03'),
+(76, 'RainLab.User', 'comment', '1.2.3', 'Included some descriptive paragraphs in the Reset Password component markup.', '2017-09-28 07:09:03'),
+(77, 'RainLab.User', 'comment', '1.2.4', 'Added a checkbox for blocking all mail sent to the user.', '2017-09-28 07:09:03'),
+(78, 'RainLab.User', 'script', '1.2.5', 'update_timestamp_nullable.php', '2017-09-28 07:09:03'),
+(79, 'RainLab.User', 'comment', '1.2.5', 'Database maintenance. Updated all timestamp columns to be nullable.', '2017-09-28 07:09:03'),
+(80, 'RainLab.User', 'script', '1.2.6', 'users_add_last_seen.php', '2017-09-28 07:09:04'),
+(81, 'RainLab.User', 'comment', '1.2.6', 'Add a dedicated last seen column for users.', '2017-09-28 07:09:04'),
+(82, 'RainLab.User', 'comment', '1.2.7', 'Minor fix to user timestamp attributes.', '2017-09-28 07:09:05'),
+(83, 'RainLab.User', 'comment', '1.2.8', 'Add date range filter to users list. Introduced a logout event.', '2017-09-28 07:09:05'),
+(84, 'RainLab.User', 'comment', '1.2.9', 'Add invitation mail for new accounts created in the back-end.', '2017-09-28 07:09:05'),
+(85, 'RainLab.User', 'script', '1.3.0', 'users_add_guest_flag.php', '2017-09-28 07:09:06'),
+(86, 'RainLab.User', 'script', '1.3.0', 'users_add_superuser_flag.php', '2017-09-28 07:09:06'),
+(87, 'RainLab.User', 'comment', '1.3.0', 'Introduced guest user accounts.', '2017-09-28 07:09:06'),
+(88, 'RainLab.User', 'comment', '1.3.1', 'User notification variables can now be extended.', '2017-09-28 07:09:07'),
+(89, 'RainLab.User', 'comment', '1.3.2', 'Minor fix to the Auth::register method.', '2017-09-28 07:09:07'),
+(90, 'RainLab.User', 'comment', '1.3.3', 'Allow prevention of concurrent user sessions via the user settings.', '2017-09-28 07:09:07'),
+(91, 'RainLab.User', 'comment', '1.3.4', 'Added force secure protocol property to the account component.', '2017-09-28 07:09:07'),
+(92, 'RainLab.Forum', 'script', '1.0.1', 'create_channels_table.php', '2017-09-28 07:09:08'),
+(93, 'RainLab.Forum', 'script', '1.0.1', 'create_posts_table.php', '2017-09-28 07:09:08'),
+(94, 'RainLab.Forum', 'script', '1.0.1', 'create_topics_table.php', '2017-09-28 07:09:11'),
+(95, 'RainLab.Forum', 'script', '1.0.1', 'create_members_table.php', '2017-09-28 07:09:12'),
+(96, 'RainLab.Forum', 'script', '1.0.1', 'seed_all_tables.php', '2017-09-28 07:09:16'),
+(97, 'RainLab.Forum', 'comment', '1.0.1', 'First version of Forum', '2017-09-28 07:09:16'),
+(98, 'RainLab.Forum', 'script', '1.0.2', 'create_topic_watches_table.php', '2017-09-28 07:09:17'),
+(99, 'RainLab.Forum', 'comment', '1.0.2', 'Add unread flags to topics', '2017-09-28 07:09:17'),
+(100, 'RainLab.Forum', 'script', '1.0.3', 'members_add_mod_and_ban.php', '2017-09-28 07:09:18'),
+(101, 'RainLab.Forum', 'comment', '1.0.3', 'Users can now be made moderators or be banned', '2017-09-28 07:09:18'),
+(102, 'RainLab.Forum', 'script', '1.0.4', 'channels_add_hidden_and_moderated.php', '2017-09-28 07:09:19'),
+(103, 'RainLab.Forum', 'comment', '1.0.4', 'Channels can now be hidden or moderated', '2017-09-28 07:09:19'),
+(104, 'RainLab.Forum', 'script', '1.0.5', 'add_embed_code.php', '2017-09-28 07:09:20'),
+(105, 'RainLab.Forum', 'comment', '1.0.5', 'Introduced topic and channel embedding', '2017-09-28 07:09:20'),
+(106, 'RainLab.Forum', 'script', '1.0.6', 'create_channel_watches_table.php', '2017-09-28 07:09:21'),
+(107, 'RainLab.Forum', 'comment', '1.0.6', 'Add unread flags to channels', '2017-09-28 07:09:22'),
+(108, 'RainLab.Forum', 'script', '1.0.7', 'create_topic_followers_table.php', '2017-09-28 07:09:23'),
+(109, 'RainLab.Forum', 'comment', '1.0.7', 'Forum members can now follow topics', '2017-09-28 07:09:23'),
+(110, 'RainLab.Forum', 'comment', '1.0.8', 'Added Channel name to the Topics component view', '2017-09-28 07:09:23'),
+(111, 'RainLab.Forum', 'comment', '1.0.9', 'Updated the Settings page', '2017-09-28 07:09:23'),
+(112, 'RainLab.Forum', 'comment', '1.0.10', 'Users can now report spammers who can be banned by moderators.', '2017-09-28 07:09:23'),
+(113, 'RainLab.Forum', 'comment', '1.0.11', 'Users can now quote other posts.', '2017-09-28 07:09:23'),
+(114, 'RainLab.Forum', 'comment', '1.0.12', 'Improve support for CDN asset hosting.', '2017-09-28 07:09:24'),
+(115, 'RainLab.Forum', 'comment', '1.0.13', 'Fixes a bug where channels cannot be selected in the Embed component inspector.', '2017-09-28 07:09:24'),
+(116, 'RainLab.Forum', 'comment', '1.0.14', 'Improve the pagination code used in the component default markup.', '2017-09-28 07:09:24'),
+(117, 'RainLab.Forum', 'comment', '1.0.15', 'When a User is deleted, their Member profile and posts is also deleted.', '2017-09-28 07:09:24'),
+(118, 'RainLab.Forum', 'comment', '1.0.16', 'Posting topics is now throttled allowing 3 new topics every 15 minutes.', '2017-09-28 07:09:24'),
+(119, 'RainLab.Forum', 'comment', '1.0.17', 'Update channel reorder page to new system reordering feature.', '2017-09-28 07:09:24'),
+(120, 'RainLab.Forum', 'comment', '1.0.18', 'Minor fix to embed topic component.', '2017-09-28 07:09:24'),
+(121, 'RainLab.Forum', 'script', '1.0.19', 'update_timestamp_nullable.php', '2017-09-28 07:09:25'),
+(122, 'RainLab.Forum', 'comment', '1.0.19', 'Database maintenance. Updated all timestamp columns to be nullable.', '2017-09-28 07:09:25'),
+(123, 'RainLab.Forum', 'script', '1.1.0', 'drop_watches_tables.php', '2017-09-28 07:09:27'),
+(124, 'RainLab.Forum', 'comment', '1.1.0', 'Major performance enhancements', '2017-09-28 07:09:27'),
+(125, 'RainLab.Forum', 'comment', '1.1.1', 'Fixes bug throwing error when a forum topic has no posts.', '2017-09-28 07:09:27');
 
 -- --------------------------------------------------------
 
@@ -591,7 +818,9 @@ CREATE TABLE `system_plugin_versions` (
 
 INSERT INTO `system_plugin_versions` (`id`, `code`, `version`, `created_at`, `is_disabled`, `is_frozen`) VALUES
 (1, 'October.Demo', '1.0.1', '2017-09-27 13:21:53', 0, 0),
-(2, 'RainLab.Blog', '1.2.16', '2017-09-27 13:22:10', 0, 0);
+(2, 'RainLab.Blog', '1.2.16', '2017-09-27 13:22:10', 0, 0),
+(3, 'RainLab.User', '1.3.4', '2017-09-28 07:09:07', 0, 0),
+(4, 'RainLab.Forum', '1.1.1', '2017-09-28 07:09:27', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -638,6 +867,86 @@ CREATE TABLE `system_settings` (
   `id` int(10) UNSIGNED NOT NULL,
   `item` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `value` mediumtext COLLATE utf8_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `activation_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `persist_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `reset_password_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `permissions` text COLLATE utf8_unicode_ci,
+  `is_activated` tinyint(1) NOT NULL DEFAULT '0',
+  `activated_at` timestamp NULL DEFAULT NULL,
+  `last_login` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `username` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `surname` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `last_seen` timestamp NULL DEFAULT NULL,
+  `is_guest` tinyint(1) NOT NULL DEFAULT '0',
+  `is_superuser` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users_groups`
+--
+
+CREATE TABLE `users_groups` (
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `user_group_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_groups`
+--
+
+CREATE TABLE `user_groups` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `user_groups`
+--
+
+INSERT INTO `user_groups` (`id`, `name`, `code`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'Guest', 'guest', 'Default group for guest users.', '2017-09-28 07:09:01', '2017-09-28 07:09:01'),
+(2, 'Registered', 'registered', 'Default group for registered users.', '2017-09-28 07:09:01', '2017-09-28 07:09:01');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_throttle`
+--
+
+CREATE TABLE `user_throttle` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED DEFAULT NULL,
+  `ip_address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `attempts` int(11) NOT NULL DEFAULT '0',
+  `last_attempt_at` timestamp NULL DEFAULT NULL,
+  `is_suspended` tinyint(1) NOT NULL DEFAULT '0',
+  `suspended_at` timestamp NULL DEFAULT NULL,
+  `is_banned` tinyint(1) NOT NULL DEFAULT '0',
+  `banned_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -756,6 +1065,65 @@ ALTER TABLE `rainlab_blog_posts_categories`
   ADD PRIMARY KEY (`post_id`,`category_id`);
 
 --
+-- Indexes for table `rainlab_forum_channels`
+--
+ALTER TABLE `rainlab_forum_channels`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `rainlab_forum_channels_slug_unique` (`slug`),
+  ADD KEY `rainlab_forum_channels_parent_id_index` (`parent_id`),
+  ADD KEY `rainlab_forum_channels_embed_code_index` (`embed_code`);
+
+--
+-- Indexes for table `rainlab_forum_members`
+--
+ALTER TABLE `rainlab_forum_members`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `rainlab_forum_members_user_id_index` (`user_id`),
+  ADD KEY `rainlab_forum_members_count_posts_index` (`count_posts`),
+  ADD KEY `rainlab_forum_members_count_topics_index` (`count_topics`),
+  ADD KEY `rainlab_forum_members_last_active_at_index` (`last_active_at`),
+  ADD KEY `rainlab_forum_members_is_moderator_index` (`is_moderator`);
+
+--
+-- Indexes for table `rainlab_forum_posts`
+--
+ALTER TABLE `rainlab_forum_posts`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `rainlab_forum_posts_topic_id_index` (`topic_id`),
+  ADD KEY `rainlab_forum_posts_member_id_index` (`member_id`);
+
+--
+-- Indexes for table `rainlab_forum_topics`
+--
+ALTER TABLE `rainlab_forum_topics`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `rainlab_forum_topics_slug_unique` (`slug`),
+  ADD KEY `sticky_post_time` (`is_sticky`,`last_post_at`),
+  ADD KEY `rainlab_forum_topics_channel_id_index` (`channel_id`),
+  ADD KEY `rainlab_forum_topics_start_member_id_index` (`start_member_id`),
+  ADD KEY `rainlab_forum_topics_last_post_at_index` (`last_post_at`),
+  ADD KEY `rainlab_forum_topics_is_private_index` (`is_private`),
+  ADD KEY `rainlab_forum_topics_is_locked_index` (`is_locked`),
+  ADD KEY `rainlab_forum_topics_count_posts_index` (`count_posts`),
+  ADD KEY `rainlab_forum_topics_count_views_index` (`count_views`),
+  ADD KEY `rainlab_forum_topics_embed_code_index` (`embed_code`);
+
+--
+-- Indexes for table `rainlab_forum_topic_followers`
+--
+ALTER TABLE `rainlab_forum_topic_followers`
+  ADD PRIMARY KEY (`topic_id`,`member_id`);
+
+--
+-- Indexes for table `rainlab_user_mail_blockers`
+--
+ALTER TABLE `rainlab_user_mail_blockers`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `rainlab_user_mail_blockers_email_index` (`email`),
+  ADD KEY `rainlab_user_mail_blockers_template_index` (`template`),
+  ADD KEY `rainlab_user_mail_blockers_user_id_index` (`user_id`);
+
+--
 -- Indexes for table `sessions`
 --
 ALTER TABLE `sessions`
@@ -835,6 +1203,38 @@ ALTER TABLE `system_settings`
   ADD KEY `system_settings_item_index` (`item`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`),
+  ADD UNIQUE KEY `users_login_unique` (`username`),
+  ADD KEY `users_activation_code_index` (`activation_code`),
+  ADD KEY `users_reset_password_code_index` (`reset_password_code`),
+  ADD KEY `users_login_index` (`username`);
+
+--
+-- Indexes for table `users_groups`
+--
+ALTER TABLE `users_groups`
+  ADD PRIMARY KEY (`user_id`,`user_group_id`);
+
+--
+-- Indexes for table `user_groups`
+--
+ALTER TABLE `user_groups`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_groups_code_index` (`code`);
+
+--
+-- Indexes for table `user_throttle`
+--
+ALTER TABLE `user_throttle`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_throttle_user_id_index` (`user_id`),
+  ADD KEY `user_throttle_ip_address_index` (`ip_address`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -872,7 +1272,7 @@ ALTER TABLE `backend_user_throttle`
 -- AUTO_INCREMENT for table `cms_theme_data`
 --
 ALTER TABLE `cms_theme_data`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `cms_theme_logs`
@@ -911,10 +1311,40 @@ ALTER TABLE `rainlab_blog_posts`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `rainlab_forum_channels`
+--
+ALTER TABLE `rainlab_forum_channels`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `rainlab_forum_members`
+--
+ALTER TABLE `rainlab_forum_members`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `rainlab_forum_posts`
+--
+ALTER TABLE `rainlab_forum_posts`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `rainlab_forum_topics`
+--
+ALTER TABLE `rainlab_forum_topics`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `rainlab_user_mail_blockers`
+--
+ALTER TABLE `rainlab_user_mail_blockers`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `system_event_logs`
 --
 ALTER TABLE `system_event_logs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `system_files`
@@ -938,19 +1368,19 @@ ALTER TABLE `system_mail_templates`
 -- AUTO_INCREMENT for table `system_parameters`
 --
 ALTER TABLE `system_parameters`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `system_plugin_history`
 --
 ALTER TABLE `system_plugin_history`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
 
 --
 -- AUTO_INCREMENT for table `system_plugin_versions`
 --
 ALTER TABLE `system_plugin_versions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `system_request_logs`
@@ -968,6 +1398,24 @@ ALTER TABLE `system_revisions`
 -- AUTO_INCREMENT for table `system_settings`
 --
 ALTER TABLE `system_settings`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `user_groups`
+--
+ALTER TABLE `user_groups`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `user_throttle`
+--
+ALTER TABLE `user_throttle`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
